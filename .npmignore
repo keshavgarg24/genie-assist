@@ -1,0 +1,8 @@
+# Create .npmignore to exclude unnecessary files
+echo "src/components/
+src/pages/
+public/
+*.log
+.env*
+vite.config.ts
+tailwind.config.ts" > .npmignore
