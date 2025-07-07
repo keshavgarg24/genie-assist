@@ -3,7 +3,7 @@
 
 > _Your magical command-line assistant that combines developer utilities with AI superpowers!_
 
-[![npm version](https://badge.fury.io/js/genie-cli.svg)](https://badge.fury.io/js/genie-cli)
+[![npm version](https://badge.fury.io/js/genie-assist.svg)](https://badge.fury.io/js/genie-asist)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🚀 Features
@@ -30,10 +30,10 @@
 
 ```bash
 # Install globally
-npm install -g genie-cli
+npm install -g genie-assist
 
 # Or use without installing
-npx genie-cli
+npx genie-assist
 ```
 
 ## 🔧 Setup
@@ -114,12 +114,12 @@ genie --summarize-file package.json
 ## 🔧 Configuration
 
 Genie stores its configuration in:
-- **macOS/Linux**: `~/.config/genie-cli/config.json`
-- **Windows**: `%APPDATA%/genie-cli/config.json`
+- **macOS/Linux**: `~/.config/genie-assist/config.json`
+- **Windows**: `%APPDATA%/genie-assist/config.json`
 
 ### Reset Configuration
 ```bash
-rm ~/.config/genie-cli/config.json  # Unix
+rm ~/.config/genie-assist/config.json  # Unix
 # Or delete the config file on Windows
 ```
 
@@ -143,8 +143,8 @@ We welcome contributions! Here's how to get started:
 
 ### Development Setup
 ```bash
-git clone https://github.com/your-username/genie-cli.git
-cd genie-cli
+git clone https://github.com/your-username/genie-assist.git
+cd genie-assist
 npm install
 npm run dev
 ```
@@ -162,9 +162,8 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- [npm Package](https://www.npmjs.com/package/genie-cli)
-- [GitHub Repository](https://github.com/your-username/genie-cli)
-- [Issue Tracker](https://github.com/your-username/genie-cli/issues)
+- [npm Package](https://www.npmjs.com/package/genie-assist)
+- [GitHub Repository](https://github.com/keshavgarg24/genie-assist)
 - [Google AI Studio](https://aistudio.google.com/app/apikey)
 
 ---
@@ -174,116 +173,3 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 **Made to ease out daily tasks - It is an open sourced project and your contributions are highly appreciated**
 
 _Star ⭐ this repo if you find it helpful!_
-
-</div>
-```
-
-<lov-write file_path=".gitignore">
-# Dependencies
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env
-.env.test
-.env.production
-.env.local
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-public
-
-# Vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
-
-# MacOS
-.DS_Store
-
-# Windows
-Thumbs.db
-
-# Editor directories and files
-.vscode/
-!.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Local configuration files
-*.local
-config.json
-
-# Log files
-*.log
-logs/
-
-# Temporary files
-tmp/
-temp/

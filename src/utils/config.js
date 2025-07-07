@@ -6,7 +6,7 @@ import { homedir } from 'os';
 export class ConfigManager {
   constructor() {
     this.config = new Conf({
-      projectName: 'genie-cli',
+      projectName: 'genie-assist',
       configName: 'config',
       defaults: {
         geminiApiKey: null,

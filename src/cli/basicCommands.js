@@ -242,7 +242,7 @@ npm start
 
 ---
 
-Generated with ❤️ by [Genie CLI](https://github.com/keshavgarg24/genie-cli)
+Generated with ❤️ by [Genie CLI](https://github.com/keshavgarg24/genie-assist)
 `;
 
     try {
