@@ -3,7 +3,7 @@
 
 > _Your magical command-line assistant that combines developer utilities with AI superpowers!_
 
-[![npm version](https://badge.fury.io/js/genie-assist.svg)](https://badge.fury.io/js/genie-asist)
+[![npm version](https://badge.fury.io/js/genie-assist.svg)](https://badge.fury.io/js/genie-assist)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🚀 Features
