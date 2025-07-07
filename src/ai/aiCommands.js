@@ -10,7 +10,6 @@ export class AICommands {
 
   async summarize(text) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('✍️ Summarizing...').start();
     try {
       const prompt = `Please provide a concise summary of the following text:\n\n${text}`;
@@ -25,7 +24,6 @@ export class AICommands {
 
   async explain(concept) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('💡 Thinking...').start();
     try {
       const prompt = `Please explain the following concept with examples:\n\n${concept}`;
@@ -40,7 +38,6 @@ export class AICommands {
 
   async translate(text, targetLang) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora(`🌍 Translating to ${targetLang}...`).start();
     try {
       const prompt = `Translate the following text to ${targetLang}:\n\n${text}`;
@@ -56,7 +53,6 @@ export class AICommands {
 
   async startChat() {
     if (!this.gemini) return this.noApiKey();
-
     const { default: inquirer } = await import('inquirer');
     console.log(chalk.cyan('💬 Starting AI Chat Mode'));
     console.log(chalk.gray('Type "exit" or "quit" to end the conversation'));
@@ -64,14 +60,9 @@ export class AICommands {
 
     try {
       const chat = await this.gemini.startChat();
-
       while (true) {
         const { message } = await inquirer.prompt([
-          {
-            type: 'input',
-            name: 'message',
-            message: chalk.blue('You:')
-          }
+          { type: 'input', name: 'message', message: chalk.blue('You:') }
         ]);
 
         if (['exit', 'quit'].includes(message.toLowerCase())) {
@@ -97,7 +88,6 @@ export class AICommands {
 
   async generateEmail(prompt) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('📧 Generating email...').start();
     try {
       const fullPrompt = `Generate a professional email based on this request: ${prompt}\n\nPlease include:\n- Subject line\n- Greeting\n- Body\n- Closing`;
@@ -112,7 +102,6 @@ export class AICommands {
 
   async generateCode(description) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('💻 Generating code...').start();
     try {
       const prompt = `Generate clean, well-commented code for: ${description}\nInclude syntax highlighting, comments, best practices, and example usage if applicable.`;
@@ -127,7 +116,6 @@ export class AICommands {
 
   async debugCode(code) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('🐛 Analyzing code...').start();
     try {
       const prompt = `Analyze this code for bugs and improvements:\n\n${code}`;
@@ -142,7 +130,6 @@ export class AICommands {
 
   async generateCommitMessage() {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('📝 Analyzing git changes...').start();
     try {
       const gitDiff = execSync('git diff --cached', { encoding: 'utf8' });
@@ -150,7 +137,6 @@ export class AICommands {
         spinner.warn('⚠️ No staged changes. Use: git add <file>');
         return;
       }
-
       const prompt = `Generate a conventional commit message based on this diff:\n\n${gitDiff}`;
       const response = await this.gemini.generateContent(prompt);
       spinner.succeed('📝 Suggested Commit Message:');
@@ -163,7 +149,6 @@ export class AICommands {
 
   async generateDocumentation(code) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora('📚 Generating documentation...').start();
     try {
       const prompt = `Generate documentation for the following code:\n\n${code}`;
@@ -178,7 +163,6 @@ export class AICommands {
 
   async summarizeFile(filePath) {
     if (!this.gemini) return this.noApiKey();
-
     const spinner = ora(`📄 Summarizing ${filePath}...`).start();
     try {
       const content = await readFile(filePath, 'utf8');
@@ -188,6 +172,34 @@ export class AICommands {
       console.log(chalk.cyan(response));
     } catch (error) {
       spinner.fail('❌ Failed to summarize file');
+      console.error(chalk.red(error.message));
+    }
+  }
+
+  async generateIdea(type) {
+    if (!this.gemini) return this.noApiKey();
+    const spinner = ora('🎯 Generating idea...').start();
+    try {
+      const prompt = `Generate a unique idea related to: ${type}`;
+      const response = await this.gemini.generateContent(prompt);
+      spinner.succeed('🎯 Idea Generated:');
+      console.log(chalk.cyan(response));
+    } catch (error) {
+      spinner.fail('❌ Failed to generate idea');
+      console.error(chalk.red(error.message));
+    }
+  }
+
+  async writePoem(prompt) {
+    if (!this.gemini) return this.noApiKey();
+    const spinner = ora('📝 Writing poem...').start();
+    try {
+      const fullPrompt = `Write a creative poem based on the following theme or idea: ${prompt}`;
+      const response = await this.gemini.generateContent(fullPrompt);
+      spinner.succeed('📝 Poem Written:');
+      console.log(chalk.cyan(response));
+    } catch (error) {
+      spinner.fail('❌ Failed to write poem');
       console.error(chalk.red(error.message));
     }
   }
